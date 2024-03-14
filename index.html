@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Online Books</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	
+	<!-- header section starts  -->
+	
+	<header class="site-header">
+		<div class="bg-stone-100">
+			<div class="w-[1320px] m-auto px-[20px]">
+				<div class="flex justify-between items-center py-4">
+					<a href="index.html" class="text-[22px] text-gray-600 font-bold">Online <span class="text-sky-600">books</span> </a>
+					<div class="flex items-center gap-2">
+						<a href="#" class="text-[18px] text-sky-600 font-semibold">Home</a>
+						<a href="#" class="text-[18px] text-sky-600 font-semibold">Books</a>
+						<a href="#" class="text-[18px] text-sky-600 font-semibold">Favourite</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-sky-500">
+			<div class="w-[1320px] m-auto px-[20px]">
+				<form class="js-books-form py-[35px] flex justify-center items-center gap-2">
+					<input class="js-search-input w-[400px] outline-none rounded px-4 py-2 placeholder:text-stone-500" type="search" placeholder="Search books, authors, novels" aria-label="search for books">
+					<select class="js-sorted-select w-[150px] rounded px-2 py-[8.6px] outline-none">
+						<option value="a-z">A-Z</option>
+						<option value="z-a">Z-A</option>
+						<option value="min-year">lowest year</option>
+						<option value="max-year">highest year</option>
+						<option value="min-page">min page</option>
+						<option value="max-page">max page</option>
+					</select>
+					<select class="js-books-language-select w-[150px] rounded px-2 py-[8.6px] outline-none">
+						<option value="all">All</option>
+					</select>
+					<input class="js-minYear-input outline-none rounded px-2 py-2 placeholder:text-stone-500" type="number" placeholder="Min year">
+					<input class="js-maxYear-input outline-none rounded px-2 py-2 placeholder:text-stone-500" type="number" placeholder="Max year">
+					<button class="rounded px-5 py-2 bg-sky-900 text-white" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+		<button class="absolute top-[220px] right-10 ml-[1150px] p-1 rounded bg-stone-800 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+			<img class="sticky bg-white py-2 w-10 h-10 object-contain absolute right-[50px] cursor-pointer hover:bg-stone-200" src="./images/free-icon-bookmark-white-25667.png" alt="">
+			<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger js-booked-books-count"></span>
+		</button>
+	</header>
+	
+	<main>
+		<section class="w-[1320px] m-auto px-[20px]">
+			<ul class="js-books-list flex flex-wrap justify-center items-center gap-3 mt-6">
+				
+			</ul>
+		</section>
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+			<div class="offcanvas-header">
+				
+				<h3 class="offcanvas-title" id="offcanvasRightLabel">
+					Bookmarked Movies
+				</h3>
+				
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="saved-books-list list-unstyled" id="savedBooksList">
+
+				</ul>
+			</div>
+		</div>
+	</main>
+	
+	<template class="js-books-template">
+		<li class="p-2 border-2 border-stone-400 rounded w-[300px]">
+			<img class="book-image w-[250px] h-[250px] object-cover mb-2" src="./images/things-fall-apart.jpg" alt="">
+			<div class="h-[50px] flex items-center">
+				<strong class="book-title text-xl text-stone-700 font-semibold ">Things Fall Apart</strong>
+			</div>
+			<h3 class="book-author text-[16px] text-stone-600 mt-2">Chinua Achebe</h3>
+			<div class="flex justify-between items-center my-4 ">
+				<p class="book-publish-year flex items-center gap-2">1958</p>
+				<p class="book-page flex items-center gap-2">209</p>
+				<p class="book-written-language flex items-center gap-2">English</p>
+			</div>
+			<div class="flex justify-between items-center">
+				<a class="book-wikipedia-link text-sky-700 underline font-semibold" href="" target="_blank">Wikipedia</a>
+				<button class="books-bookmark-btn bg-sky-600 text-white rounded p-2">Bookmark</button>
+			</div>
+		</li>
+	</template>
+	
+	<template class="js-bookmarked-template">
+		<li class="saved-book mb-2 text-center bg-secondary py-2 text-white">
+			<img class="book-image w-[250px] h-[250px] object-cover mb-2 m-auto" src="./images/things-fall-apart.jpg" alt="">
+			<div class="h-[50px] flex items-center">
+				<strong class="book-title text-xl text-stone-700 font-semibold ">Things Fall Apart</strong>
+			</div>
+			<h3 class="book-author text-[16px] text-stone-600 mt-2">Chinua Achebe</h3>
+			<div class="flex justify-between items-center my-4 ">
+				<p class="book-publish-year flex items-center gap-2">1958</p>
+				<p class="book-page flex items-center gap-2">209</p>
+				<p class="book-written-language flex items-center gap-2">English</p>
+			</div>
+			<button class="p-2 rounded bg-red-700 w-75 saved-book-delete-btn" type="button">DELETE</button>
+		</li>
+	</template>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="./js/books.js"></script>
+	<script src="./js/main.js"></script>
+	
+</body>
+</html>
