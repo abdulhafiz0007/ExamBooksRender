@@ -1,0 +1,36 @@
+*{
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+}
+
+.book-publish-year::before {
+	content: "";
+	display: inline-block;
+	background-image: url(../icons/year.svg);
+	width: 22px;
+	height: 22px;
+}
+
+.book-page::before {
+	content: "";
+	display: inline-block;
+	background-image: url(../icons/pages.svg);
+	width: 22px;
+	height: 22px;
+}
+
+.book-written-language::before {
+	content: "";
+	display: inline-block;
+	background-image: url(../icons/language.svg);
+	width: 22px;
+	height: 22px;
+}
+
+
+
+
+
